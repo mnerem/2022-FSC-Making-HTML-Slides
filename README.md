@@ -1,5 +1,6 @@
 # 2022-FSC-Making-HTML-Slides
 
+[Link to Presentation](FSC-Making-HTML-Slides.html)
 
 ## Making Lecture Slides in HTML
 May 17, 2022 01:00 PM - 02:00 PM
