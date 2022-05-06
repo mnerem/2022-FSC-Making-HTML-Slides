@@ -13,7 +13,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --background-color: #f9f9f9ff;
+  --background-color: #0000000;
   --main-font: Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif;
   --main-font-size: 36px;
   --main-color: #000;
@@ -27,10 +27,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
   --heading-text-shadow: black 2px 5px;
   --heading-font-weight: 600;
   --heading1-text-shadow: black 2px 5px;
-  --heading1-size: 2.5em;
-  --heading2-size: 1.6em;
-  --heading3-size: 1.3em;
-  --heading4-size: 1em;
+  --heading1-size: 1.5em;
+  --heading2-size: 1.2em;
+  --heading3-size: 1.0em;
+  --heading4-size: 0.75em;
   --code-font: monospace;
   --link-color: #2a76dd;
   --link-color-dark: #1a53a1;
@@ -153,7 +153,11 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 .reveal ol {
-  list-style-type: decimal;
+  list-style-type: letter;
+}
+
+.reveal ola {
+  list-style-type: lower-alpha;
 }
 
 .reveal ul {
@@ -329,6 +333,19 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 .reveal a:hover .r-frame {
+  border-color: var(--link-color-dark);
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.95);
+}
+
+.reveal .r-frame-no-border {
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.55);
+}
+
+.reveal a .r-frame-no-border {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame-no-border {
   border-color: var(--link-color-dark);
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.95);
 }
