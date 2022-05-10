@@ -56,22 +56,498 @@
 				<section data-background-image="Figures/fsc-background.svg"
 						 data-background-size="contain"
 				>
-					<h1 class="overl">Welcome to Jurassic Park</h1>
+					<h2 class="overl">Structure of this Presentation</h2>
 					<ol>
-						<li>Item 1</li>
-						<li>Item 1</li>
-						<li>Item 1</li>
-						<li>Item 1</li>
+						<li>Demonstration of HTML slide features</li>
+						<li>Creating your first presentation</li>
+						<li>Hosting your presentation online</li>
+						<li>Canvas Integration</li>
 					</ol>
-
-					<ola>
-						<li>Item 1</li>
-						<li>Item 1</li>
-						<li>Item 1</li>
-						<li>Item 1</li>
-					</ola>
 				</section>
-                
+
+				<section>
+					<section data-background-color="rgb(42, 36, 84)">
+						Section 1
+						<h1 class="r-frame-no-border">HTML Slide Features</h1>
+					</section>
+					
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Stellarium</h2>
+						<iframe src="https://stellarium-web.org/" width=850 height=478></iframe>
+					</section>
+					
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<div class="overl">
+						<h2>Course Grade</h2>
+						</div>
+						<div id=container>
+							<table>
+								<td>
+									<!--Sliders table -->
+									<font size="4">
+										<div class="mathbox">
+										<table border="0">
+											<tr>
+												<td style='border:none'>15% Lab:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="Lab_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>20% Reading:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="Par_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>20% Homework:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="HW_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>15% Test 1:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="T1_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>15% Test 2:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="T2_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>15% Test 3:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="T3_Slider"/><span></span><br>
+												</td>
+											</tr>
+											<tr>
+												<td style='border:none'>15% Final Exam:</td>
+												<td style='border:none'>
+												<input type=range min=0 max=100 value=100 step=1 id="FE_Slider"/><span></span><br>
+												</td>
+											</tr>
+										</table>
+										Lowest test grade is automatically dropped!
+															<p>
+										<b>Course Grade =  <span id=CourseGrade></span></b>
+																</p>
+										</div>
+									</font>
+								</td>
+								<td>
+									<font size="4">
+										This is the formula used to calculate your grade.
+										<div class="mathbox">
+										$$
+											\begin{align}
+												\text{Grade}\, = \,& .15*(\text{Lab}) + \, \\
+													& .20*(\text{Reading Notes}) + \, \\
+													& .20*(\text{Homework}) + \, \\
+													& .15*\left(
+														\begin{matrix}
+														\text{SUM}[T1,T2,T3,FE] \\ -\,\text{MIN}[T1,T2,T3,FE]
+														\end{matrix}
+														\right)
+											\end{align}
+										$$
+										</div>
+
+										$\leftarrow$ Tool to help you figure out your grade.
+									</font>
+								</td>
+							</table>
+						</div>
+
+						<!--Script to calculate course grade with sliders                    -->
+						<script>
+
+						var sliders = document.querySelectorAll('#container input'),
+							displays = document.querySelectorAll('#container input + span'),
+							total = document.getElementById('CourseGrade');
+						+function(updater) {
+						updater();
+						document.getElementById('container').addEventListener('input', updater, false);
+						}(function() {
+						for(var i = 0; i < sliders.length; i++) {
+							var val = sliders[i].value, display = displays[i];
+							display.textContent = val;
+						}
+
+						var lab_grade = +document.getElementById("Lab_Slider").value;
+						var p_grade = +document.getElementById("Par_Slider").value;
+						var hw_grade = +document.getElementById("HW_Slider").value;
+						var t1_grade = +document.getElementById("T1_Slider").value;
+						var t2_grade = +document.getElementById("T2_Slider").value;
+						var t3_grade = +document.getElementById("T3_Slider").value;
+						var fe_grade = +document.getElementById("FE_Slider").value;
+
+						var course_grade = +lab_grade*.15 +
+											+p_grade*.20 +
+											+hw_grade*.20 +
+											((t1_grade + t2_grade + t3_grade + fe_grade) -
+											Math.min(t1_grade,t2_grade,t3_grade, fe_grade))*.15
+											;
+
+						CourseGrade.textContent = course_grade.toFixed(2);
+						});
+
+						</script>
+					</section>
+
+
+					<section data-background-iframe="hydrogen_atom_sim.html"
+							data-background-contain
+							alignment="top">
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain"
+					>
+						<h2 class="overl">Timer</h2>
+						<div id="timer"></div>
+						<font size="4">
+							<table border="0">
+								<tr>
+									<td style='border:none'><label for="fhours">Hours:</label></td>
+									<td style='border:none'><input type="number" id="set_hours" name="set_hours"></td>
+								</tr>
+								<tr>
+									<td style='border:none'><label for="fminutes">Minutes:</label></td>
+									<td style='border:none'><input type="number" id="set_minutes" name="set_minutes"></td>
+								</tr>
+								<tr>
+									<td style='border:none'><label for="fseconds">Seconds:</label></td>
+									<td style='border:none'><input type="number" id="set_seconds" name="set_seconds"></td>
+								</tr>
+							</table>
+
+							<button 
+								type="button" 
+								onclick="TIME_LIMIT=+document.getElementById('set_hours').value*60*60;
+										TIME_LIMIT+=+document.getElementById('set_minutes').value*60; 
+										TIME_LIMIT+=+document.getElementById('set_seconds').value;
+										startTimer()">
+								Start Timer
+							</button>
+						</font>
+
+						<script>
+							// Credit: Mateusz Rybczonec
+							var TIME_LIMIT_HRS = +document.getElementById("set_hours").value;
+							var TIME_LIMIT = 25;
+							TIME_LIMIT += TIME_LIMIT_HRS
+							
+
+							const FULL_DASH_ARRAY = 283;
+							var WARNING_THRESHOLD = TIME_LIMIT/2;
+							var ALERT_THRESHOLD = TIME_LIMIT/4;
+
+							const COLOR_CODES = {
+							info: {
+								color: "green"
+							},
+							warning: {
+								color: "orange",
+								threshold: WARNING_THRESHOLD
+							},
+							alert: {
+								color: "red",
+								threshold: ALERT_THRESHOLD
+							}
+							};
+
+							let timePassed = 0;
+							let timeLeft = TIME_LIMIT;
+							let timerInterval = null;
+							let remainingPathColor = COLOR_CODES.info.color;
+
+							document.getElementById("timer").innerHTML = `
+							<div class="base-timer">
+							<svg class="base-timer__svg" viewBox="0 0 100 100">
+								<g class="base-timer__circle">
+								<circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+								<path
+									id="base-timer-path-remaining"
+									stroke-dasharray="283"
+									class="base-timer__path-remaining ${remainingPathColor}"
+									d="
+									M 50, 50
+									m -45, 0
+									a 45,45 0 1,0 90,0
+									a 45,45 0 1,0 -90,0
+									"
+								></path>
+								</g>
+							</svg>
+							<span id="base-timer-label" class="base-timer__label">${formatTime(
+								timeLeft
+							)}</span>
+							</div>
+							`;
+
+
+							function onTimesUp() {
+							clearInterval(timerInterval);
+							}
+
+							function startTimer() {
+								timerInterval = setInterval(() => {
+								timePassed = timePassed += 1;
+								timeLeft = TIME_LIMIT - timePassed;
+								document.getElementById("base-timer-label").innerHTML = formatTime(
+								timeLeft
+								);
+								setCircleDasharray();
+								setRemainingPathColor(timeLeft);
+
+								if (timeLeft === 0) {
+								onTimesUp();
+								}
+							}, 1000);
+							}
+
+							function formatTime(time) {
+							const minutes = Math.floor(time / 60);
+							let seconds = time % 60;
+
+							if (seconds < 10) {
+								seconds = `0${seconds}`;
+							}
+
+							return `${minutes}:${seconds}`;
+							}
+
+							function setRemainingPathColor(timeLeft) {
+							const { alert, warning, info } = COLOR_CODES;
+							if (timeLeft <= alert.threshold) {
+								document
+								.getElementById("base-timer-path-remaining")
+								.classList.remove(warning.color);
+								document
+								.getElementById("base-timer-path-remaining")
+								.classList.add(alert.color);
+							} else if (timeLeft <= warning.threshold) {
+								document
+								.getElementById("base-timer-path-remaining")
+								.classList.remove(info.color);
+								document
+								.getElementById("base-timer-path-remaining")
+								.classList.add(warning.color);
+							}
+							}
+
+							function calculateTimeFraction() {
+							const rawTimeFraction = timeLeft / TIME_LIMIT;
+							return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+							}
+
+							function setCircleDasharray() {
+							const circleDasharray = `${(
+								calculateTimeFraction() * FULL_DASH_ARRAY
+							).toFixed(0)} 283`;
+							document
+								.getElementById("base-timer-path-remaining")
+								.setAttribute("stroke-dasharray", circleDasharray);
+							}
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-color="rgb(42, 36, 84)">
+						Section 2
+						<h1 class="r-frame-no-border">Creating Your <br> 1st Presentation </h1>
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain"
+					>
+						<h2 class="overl">
+							<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" width="50%">
+							<br>
+							The HTML Presentation Framework
+						</h2>
+						<font size="5">
+							An open source HTML presentation framework. 
+							<br>
+							Anyone with a web browser can 
+							create fully-featured and beautiful presentations for free.
+						</font>
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Making Your Slides</h2>
+						Use <a href="https://slides.com/" target="_blank">
+							https://slides.com/
+						</a>
+						<br>
+						<video  controls width="800" data-src="https://static.slid.es/site/homepage/v3/homepage-editor-2022-1261x735.mp4"></iframe>
+					</section>
+					
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Making Your Slides (code)</h2>
+								Write HTML code directly
+								<br>
+								<pre><code data-line-numbers>
+<section>
+	<h1> Title For Slide </h1>
+	<br>
+	Load a pretty image here!
+	<img src="figure.svg">
+	Make an equation!
+</section>
+
+								</code></pre>
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+					<h2 class="overl">Basic Setup</h2>
+					<ol>
+						<li>
+							Download the reveal.js files <br>
+							<a href="https://github.com/hakimel/reveal.js/archive/master.zip" target="_blank">
+								https://github.com/hakimel/reveal.js/archive/master.zip
+							</a>
+						</li>
+						<li>
+							Unzip the files into the directory you want to work in.
+						</li>
+						<li>
+							Make a copy of <font color="red">index.html</font>
+							and name it <font color="green">my_first_slides.html</font>
+						</li>
+					</ol>
+					
+					<font size="5">
+						Additional information and options are available here: 
+						<a href="https://revealjs.com/installation/" target="_blank">https://revealjs.com/installation/</a>
+					</font>
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Basic Setup (cont.)</h2>
+						Open <font color="green">my_first_slides.html</font> in a web browser.
+						<br><br>
+						<iframe src="my_first_html_slides/" width="500px" height="300px"></iframe>
+					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Basic Setup (cont.)</h2>
+						Now open <font color="green">my_first_slides.html</font> with a text editor.
+						<br>
+						<pre><code>
+<div class="reveal">
+	<div class="slides">
+			<section>Slide 1</section>
+			<section>Slide 2</section>
+	</div>
+</div>
+						</code></pre>
+					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Layout of new slides</h2>
+						<br><br><br><br><br><br><br><br><br><br>
+					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+					<h2 class="overl">New Slides (Code)</h2>
+					<pre><code>
+<section data-background-color="aquamarine">
+	<h1> My First HTML Presentation! </h1>
+	<br>
+	<h2> By: Me </h2>
+</section>
+
+<section>
+	<section>
+		<h2> Subject 1 </h2>
+	</section>
+	<section>
+		Slide 1
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2> Subject 2 </h2>
+	</section>
+	<section>
+		Slide 2
+	</section>
+</section>
+
+<section>
+	<h1> Conclusion </h1>
+</section>
+					</code></pre>
+
+					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Enable Math Formulas</h2>
+						We want to print the following formula in our slides.
+						$$ax^2+bx+c=0 \rightarrow x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+						Here is the formula as a LaTeX string.
+						<pre><code>        $$ax^2+bx+c=0 \rightarrow x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</code></pre>
+						Modify the HTML with the following
+						<pre><code><script src="plugin/math/math.js"></script>
+
+<script>
+	Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+</script></code></pre>
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background-color="rgb(42, 36, 84)">
+						Section 3
+						<h1 class="r-frame-no-border">Posting your <br> Presentation Online </h1>
+					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">
+							<a href="https://github.com/" target="_blank">
+								<img src="Figures/GitHub_Logo.svg" class="r-frame-no-border">
+							</a>
+						</h2>
+						Provides internet hosting for software development and version control using <b>Git</b> .
+					</section>
+				</section>
+
+				<section>
+					<section data-background-color="rgb(42, 36, 84)">
+						Section 4
+						<h1 class="r-frame-no-border"> Canvas Integration </h1>
+					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">WHat do</h2>
+					</section>
+				</section>
+				
 			</div>
 		</div>
 
@@ -90,7 +566,7 @@
                 transition: 'convex', // none/fade/slide/convex/concave/zoom
                 
                 // Vertical centering of slides
-                center: false,
+                center: true,
 
                 preloadIframes: true,
 
