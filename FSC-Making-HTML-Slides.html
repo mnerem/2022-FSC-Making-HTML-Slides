@@ -61,7 +61,6 @@
 						<li>Demonstration of HTML slide features</li>
 						<li>Creating your first presentation</li>
 						<li>Hosting your presentation online</li>
-						<li>Canvas Integration</li>
 					</ol>
 				</section>
 
@@ -71,6 +70,22 @@
 						<h1 class="r-frame-no-border">HTML Slide Features</h1>
 					</section>
 					
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Working Out Problems</h2>
+						<p>
+                            Bruce is jogging at pace of 2.5 m/s and passes Tony who is sitting on a park bench.
+                            When Bruce is 3 m ahead, Tony gets up and tries to catch up to Bruce.
+                            Tony runs with a constant acceleration of 1 m/s$^2$. At what time
+                            will Tony catch up to Bruce? The following are the standard kinematic equations.
+
+                            \begin{gather}
+                                x_f=x_i+v_0t+\tfrac{1}{2}at^2 \\
+                                v_f=v_i+at \\
+                                v_f^2=v_i^2+2a\Delta x
+                            \end{gather}
+                        </p>
+					</section>
 
 					<section data-background-image="Figures/fsc-background.svg"
 					data-background-size="contain">
@@ -201,14 +216,14 @@
 					</section>
 
 
-					<section data-background-iframe="hydrogen_atom_sim.html"
-							data-background-contain
-							alignment="top">
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Computer Simulations</h2>
+						<iframe src="hydrogen_atom_sim.html" width="960px" height="540px"></iframe>
 					</section>
 
 					<section data-background-image="Figures/fsc-background.svg"
-					data-background-size="contain"
-					>
+					data-background-size="contain">
 						<h2 class="overl">Timer</h2>
 						<div id="timer"></div>
 						<font size="4">
@@ -357,6 +372,12 @@
 							}
 						</script>
 					</section>
+
+					<section data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Directly Insert External Videos</h2>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/46G1foTIivo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</section>
 				</section>
 
 				<section>
@@ -366,12 +387,11 @@
 					</section>
 
 					<section data-background-image="Figures/fsc-background.svg"
-					data-background-size="contain"
-					>
+					data-background-size="contain">
 						<h2 class="overl">
-							<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" width="50%">
-							<br>
-							The HTML Presentation Framework
+							<a href="https://revealjs.com/" target="_blank">
+								<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" width="50%" class="r-frame-no-border">
+							</a>
 						</h2>
 						<font size="5">
 							An open source HTML presentation framework. 
@@ -396,16 +416,13 @@
 						<h2 class="overl">Making Your Slides (code)</h2>
 								Write HTML code directly
 								<br>
-								<pre><code data-line-numbers>
-<section>
+								<pre><code><section>
 	<h1> Title For Slide </h1>
 	<br>
 	Load a pretty image here!
 	<img src="figure.svg">
-	Make an equation!
-</section>
-
-								</code></pre>
+	Make an equation! $$a^2+b^2=c^2$$
+</section></code></pre>
 					</section>
 
 					<section data-background-image="Figures/fsc-background.svg"
@@ -427,6 +444,7 @@
 						</li>
 					</ol>
 					
+					<br><br>
 					<font size="5">
 						Additional information and options are available here: 
 						<a href="https://revealjs.com/installation/" target="_blank">https://revealjs.com/installation/</a>
@@ -438,7 +456,7 @@
 						<h2 class="overl">Basic Setup (cont.)</h2>
 						Open <font color="green">my_first_slides.html</font> in a web browser.
 						<br><br>
-						<iframe src="my_first_html_slides/" width="500px" height="300px"></iframe>
+						<iframe src="my_first_html_slides/index.html" width="500px" height="300px"></iframe>
 					</section>
 
 					<section data-background-image="Figures/fsc-background.svg"
@@ -515,6 +533,13 @@
 </script></code></pre>
 					</section>
 
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl"> Your First HTML Presentation! </h2>
+						<iframe src="my_first_html_slides/my_first_slides.html" width="960px" height="540px"></iframe>
+					</section>
+
 				</section>
 
 				<section>
@@ -526,27 +551,71 @@
 					<section  data-vertical-align-top
 					data-background-image="Figures/fsc-background.svg"
 					data-background-size="contain">
-						<h2 class="overl">
-							<a href="https://github.com/" target="_blank">
-								<img src="Figures/GitHub_Logo.svg" class="r-frame-no-border">
-							</a>
-						</h2>
-						Provides internet hosting for software development and version control using <b>Git</b> .
-					</section>
-				</section>
-
-				<section>
-					<section data-background-color="rgb(42, 36, 84)">
-						Section 4
-						<h1 class="r-frame-no-border"> Canvas Integration </h1>
+						<h2 class="overl">Canvas Integration</h2>
+						Our website <b>cannot</b> be copy/paste into Canvas. 
+						We have css and javascript files that will not integrate with Canvas.
 					</section>
 
 					<section  data-vertical-align-top
 					data-background-image="Figures/fsc-background.svg"
 					data-background-size="contain">
-						<h2 class="overl">WHat do</h2>
+						<h2 class="overl">
+							<a href="https://github.com/" target="_blank">
+								<img src="Figures/GitHub_Logo.svg" class="r-frame-no-border">
+							</a>
+						</h2>
+						Provides internet hub for software development and version control using <b>Git</b> tool.
+
+						<br>
+						<br>
+						Use <b>GitHub Pages</b> to host our site and share with anyone!
 					</section>
+
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">GitHub Pages</h2>
+						<ol>
+							<li>Create New Repository</li>
+							<li>Upload files to Repository</li>
+							<li>Add following line to README.md
+								<pre><code>[Link to Presentation](my_first_slides.html)</code></pre>
+							</li>
+							<li>
+								Navigate to "Settings"
+								<img src="Figures/github_find_settings.png">
+							</li>
+							<li>On left hand side click "Pages"</li>
+							<li>Under "Source" choose "main" and save!</li>
+						</ol>
+					</section>
+					
+					<section  data-vertical-align-top
+					data-background-image="Figures/fsc-background.svg"
+					data-background-size="contain">
+						<h2 class="overl">Iframe Embedding</h2>
+						<ul>
+							<li>
+								We'll use an <b>iframe</b> to put our work in Canvas
+								<pre><code><iframe src="URL" width="960px" height="540px"></iframe></code></pre>
+							</li>
+							<li>
+								Go to the Canvas Page Editor and click <b><span><</span>/<span>></span></b>
+								<br> to switch the Canvas HTML editor.
+							</li>
+							<li>Copy the above code into the box.</li>
+							<li>Replace "URL" with your link and save.</li>
+						</ul>
+					</section>
+
 				</section>
+
+				<section 
+					data-background-image="Figures/endor-celebration.gif"
+					data-background-size="cover">
+					<h2>The End</h2>
+				</section>
+
 				
 			</div>
 		</div>
